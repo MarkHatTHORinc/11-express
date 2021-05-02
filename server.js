@@ -1,25 +1,42 @@
-// Setup root Directory
-const rootDir = path.join(__dirname, "/public");
+// -----------------------------------------------------------------------------
+// Program:  server.js
+// Purpose:  1) Start Express server:
+//           2) Handle Requests.
+// Input:    <none>   
+// -----------------------------------------------------------------------------
+// Author:   Mark Harrison
+// Date:     May 1, 2021
+// -----------------------------------------------------------------------------
 
+
+// -----------------------------------------------------------------------------
+// Global Variables Section
+// -----------------------------------------------------------------------------
+// Setup root Directory
+const urljoin = require('url-join');
+const rootDir = urljoin(__dirname, '/public');
+const defaultPort = 8080;
+
+
+// -----------------------------------------------------------------------------
 // Dependencies
-const express = require("express");
-const apiRoutes = require(`${rootDir}/assets/js/apiRoutes.js`);
-const htmlRoutes = require(`${rootDir}/assets/js/htmlRoutes.js`);
+// -----------------------------------------------------------------------------
+const express = require('express');
 
 // Create an express server
-const app = express();
+const router = express();
 
 // Create a port (assign port to environment variable or to 8080 if no env var)
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || defaultPort;
 
-
-app.use(express.static("public"));
+router.use(express.static('public'));
 
 // Configure Express app for data parsing
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+router.use(express.json());
+router.use(express.urlencoded({extended: true}));
 
-app.use("/api", apiRoutes);
-app.use("/", htmlRoutes);
+// import routes files
+require(`${rootDir}/assets/js/apiRoutes`)(router);
+require(`${rootDir}/assets/js/htmlRoutes`)(router);
 
-app.listen(port, () => console.log(`Express HTTP Server is listening to port: ${port}.`));
+router.listen(port, () => console.log(`Express HTTP Server is listening to port: ${port}.`));
