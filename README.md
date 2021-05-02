@@ -1,19 +1,14 @@
-# Generate HTML file
-# for Team Profile using
-# Node.js
+# Create Note Take
+# using Express.js
 
 ![license](https://img.shields.io/badge/license-ISC-blue)
 
 ## Description 📰
 ```md
-Using Node.js this application generates an ouput HTML file based upon user input. 
-The application prompts the user for Team information. Prompts vary based upon the
-type of team member being entered.
-The generated HTML file that displays summaries for each team member. In the summary,
-email links should open the default email program populating the TO field with the
-corresponding email address.  The HTML file should also have links to team members 
-GitHub URLs that open in a new tab when clicked. 
-Test scripts are produced to test each type of employee object.
+Using Express.js this application provides an interface for a user to write and save
+notes.  The user can see all notes on the left hand side fo the screen, can click on a note
+to get more detail, can click on the trash can to delete a note, can click on the pencil to 
+enter a new note, and then click on the diskette to save the note.
 ```
 
 ## Table of Contents 📚
@@ -30,18 +25,15 @@ Test scripts are produced to test each type of employee object.
 The following steps should be used to install:
 1. Download Repository from GitHub
 2. Install NPM installer (if not already installed)
-3. NPM install node (if not already installed)
-4. NPM install inquirer (if not already installed)
-5. NPM i jest --save-dev (if not already installed)
+3. NPM install Express (if not already installed)
 ```
 
 ## Usage 🧮
-node ./assets/index.js
-```md
-    ![Directory Structure](./images/dirStruct.png)
-    ![Prompts](./images/prompts.png)
-    ![Generated HTML](./images/HTML.png)
-```
+node server.js
+
+![Initial page](./images/index.png)
+![Notes page](./images/notes.png)
+
 
 ## Credits 👷
 ```md
@@ -68,8 +60,11 @@ ISC license
 ## Tests  💻
 ```md
 1. Download GitHub Repostory
-2. Run the Generator (node index.js)
-4. Verify the HTML file generated in the ./dist directory
+2. Run the Application (node server.js)
+4. Verify the Notes HTML page allows:
+    1. A new note to be entered and saved
+    2. New note appears in note list on left
+    3. Note can be deleted.
 ```
 
 Created by [Generator](_https://github.com/MarkHatTHORinc/09-NodeJS_) using _professional_ template. 
